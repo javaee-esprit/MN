@@ -25,9 +25,20 @@ public class Affectation implements Serializable {
 	public Affectation() {
 	}
 	
+	public Affectation(Employee employee, Project project, String role){
+		this.getPk().setEmployeeId(employee.getId());
+		this.getPk().setProjectId(project.getId());
+		this.employee = employee;
+		this.project = project;
+		this.role = role;
+	}
+	
 	
 	@EmbeddedId
 	public AffectationPK getPk() {
+		if (pk == null) {
+			pk = new AffectationPK();
+		}
 		return pk;
 	}
 

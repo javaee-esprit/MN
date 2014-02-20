@@ -24,6 +24,7 @@ public interface CompanyServiceRemote {
 	List<Employee> findEmployeesNotInProject(Project project);
 	
 	void deleteProject(Project project);
+	void deleteEmployee(Employee employee);
 	
 
 }

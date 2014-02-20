@@ -52,5 +52,9 @@ public class CompanyServiceDelegate{
 	public static void deleteProject(Project project) {
 		getProxy().deleteProject(project);
 	}
+	
+	public static void deleteEmployee(Employee employee){
+		getProxy().deleteEmployee(employee);
+	}
 
 }

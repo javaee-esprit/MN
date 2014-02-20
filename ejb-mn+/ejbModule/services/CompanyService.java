@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import domain.Affectation;
 import domain.Employee;
 import domain.Project;
 
@@ -37,7 +38,8 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 
 	public void assignEmployeeToProject(Employee employee, Project project,
 			String role) {
-		
+		Affectation affectation = new Affectation(employee, project, role);
+		em.persist(affectation);
 	}
 
 	public void removeEmployeeFromProject(Employee employee, Project project) {
@@ -54,6 +56,10 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 
 	public void deleteProject(Project project) {
 		em.remove(em.merge(project));
+	}
+
+	public void deleteEmployee(Employee employee) {
+		em.remove(em.merge(employee));
 	}
 
 }
