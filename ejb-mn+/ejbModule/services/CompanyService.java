@@ -51,8 +51,8 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 
 	public List<Employee> findEmployeesByProject(Project project) {
 		List<Employee> employees = null;
-		String jpql = "select distinct emp from Employee emp ,Affectation a  where " +
-				"(emp=a.employee and a.project=:x)";
+//		String jpql = "select distinct emp from Employee emp ,Affectation a  where (emp=a.employee and a.project=:x)";
+		String jpql = "select distinct emp from Employee emp join emp.affectations aff where aff.project=:x";
 		Query query = em.createQuery(jpql);
 		query.setParameter("x", project);
 		employees=query.getResultList();
