@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import domain.Affectation;
 import domain.Employee;
@@ -43,11 +44,19 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 	}
 
 	public void removeEmployeeFromProject(Employee employee, Project project) {
+		Affectation affectation = new Affectation(employee, project, "ghost");
+		em.remove(em.merge(affectation));
 		
 	}
 
 	public List<Employee> findEmployeesByProject(Project project) {
-		return null;
+		List<Employee> employees = null;
+		String jpql = "select distinct emp from Employee emp ,Affectation a  where " +
+				"(emp=a.employee and a.project=:x)";
+		Query query = em.createQuery(jpql);
+		query.setParameter("x", project);
+		employees=query.getResultList();
+		return employees;
 	}
 
 	public List<Employee> findEmployeesNotInProject(Project project) {
