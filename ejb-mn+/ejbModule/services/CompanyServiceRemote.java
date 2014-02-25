@@ -18,7 +18,7 @@ public interface CompanyServiceRemote {
 	Project findProjectById(int id);
 	
 	void assignEmployeeToProject(Employee employee, Project project,String role);
-	void removeEmployeeFromProject(Employee employee, Project project);
+	void removeEmployeeFromProject(Employee employee, Project project, String role);
 	
 	List<Employee> findEmployeesByProject(Project project);
 	List<Employee> findEmployeesNotInProject(Project project);

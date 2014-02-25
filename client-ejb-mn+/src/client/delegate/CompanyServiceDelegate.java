@@ -37,8 +37,8 @@ public class CompanyServiceDelegate{
 		getProxy().assignEmployeeToProject(employee, project, role);
 	}
 
-	public static void removeEmployeeFromProject(Employee employee, Project project) {
-		getProxy().removeEmployeeFromProject(employee, project);
+	public static void removeEmployeeFromProject(Employee employee, Project project, String role) {
+		getProxy().removeEmployeeFromProject(employee, project, role);
 	}
 
 	public static List<Employee> findEmployeesByProject(Project project) {

@@ -43,8 +43,8 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 		em.persist(affectation);
 	}
 
-	public void removeEmployeeFromProject(Employee employee, Project project) {
-		Affectation affectation = new Affectation(employee, project, "ghost");
+	public void removeEmployeeFromProject(Employee employee, Project project, String role) {
+		Affectation affectation = new Affectation(employee, project, role);
 		em.remove(em.merge(affectation));
 		
 	}
@@ -60,6 +60,7 @@ public class CompanyService implements CompanyServiceRemote, CompanyServiceLocal
 	}
 
 	public List<Employee> findEmployeesNotInProject(Project project) {
+		//2pts
 		return null;
 	}
 

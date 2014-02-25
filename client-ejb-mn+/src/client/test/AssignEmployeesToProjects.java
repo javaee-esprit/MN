@@ -18,6 +18,7 @@ public class AssignEmployeesToProjects {
 		CompanyServiceDelegate.assignEmployeeToProject(e2, p1, "dev");
 		CompanyServiceDelegate.assignEmployeeToProject(e3, p2, "test");
 		CompanyServiceDelegate.assignEmployeeToProject(e2, p2, "dev");
+		CompanyServiceDelegate.assignEmployeeToProject(e2, p2, "scrum master");
 	}
 
 }

@@ -46,7 +46,7 @@ public class Employee implements Serializable {
 		this.name = name;
 	}
 	
-	@OneToMany( mappedBy = "employee" )
+	@OneToMany( mappedBy = "employee", cascade = CascadeType.REMOVE )
 	public List<Affectation> getAffectations() {
 		return affectations;
 	}

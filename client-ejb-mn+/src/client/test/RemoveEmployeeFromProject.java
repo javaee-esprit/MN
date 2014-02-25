@@ -9,8 +9,8 @@ public class RemoveEmployeeFromProject {
 	public static void main(String[] args) {
 		Employee e2 = CompanyServiceDelegate.findEmployeeById(2);
 		Project  p2 = CompanyServiceDelegate.findProjectById(2);
-		
-		CompanyServiceDelegate.removeEmployeeFromProject(e2, p2);
+		String role = "scrum master";
+		CompanyServiceDelegate.removeEmployeeFromProject(e2, p2,role);
 	}
 
 }

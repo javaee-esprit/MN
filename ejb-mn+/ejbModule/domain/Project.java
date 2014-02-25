@@ -48,7 +48,7 @@ public class Project implements Serializable {
 		this.name = name;
 	}
 	
-	@OneToMany(mappedBy = "project" )
+	@OneToMany(mappedBy = "project" , cascade = CascadeType.REMOVE)
 	public List<Affectation> getAffectations() {
 		return affectations;
 	}

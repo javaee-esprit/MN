@@ -17,7 +17,7 @@ public class Affectation implements Serializable {
 	
 	private AffectationPK pk;
 	
-	private String role;
+	
 	
 	private Project project;
 	private Employee employee;
@@ -28,9 +28,9 @@ public class Affectation implements Serializable {
 	public Affectation(Employee employee, Project project, String role){
 		this.getPk().setEmployeeId(employee.getId());
 		this.getPk().setProjectId(project.getId());
+		this.getPk().setRole(role);
 		this.employee = employee;
 		this.project = project;
-		this.role = role;
 	}
 	
 	
@@ -46,13 +46,7 @@ public class Affectation implements Serializable {
 		this.pk = pk;
 	}
 
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	
 	@ManyToOne
 	@JoinColumn( name = "project_fk" , insertable = false, updatable = false )
